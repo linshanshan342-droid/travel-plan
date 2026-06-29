@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>广州→杭州 6天自驾游计划</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  line-height: 1.8;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+/* 顶栏 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.header h1 { font-size: 26px; margin-bottom: 8px; }
+.header .sub { font-size: 15px; opacity: 0.9; }
+.header .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.header .tags span {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* 卡片 */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.card h2 .day-tag {
+  display: inline-block;
+  background: #667eea;
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-right: 8px;
+}
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+table th {
+  background: #f8f9ff;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+}
+table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 时间行程表 */
+.timeline {}
+.timeline-item {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-time {
+  min-width: 80px;
+  font-weight: 700;
+  color: #667eea;
+  font-size: 14px;
+}
+.timeline-content { flex: 1; font-size: 14px; }
+.timeline-icon { margin-right: 6px; }
+
+/* 景点卡片 */
+.spot-grid { display: grid; gap: 10px; }
+.spot-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: #f8f9ff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.spot-item .name { font-weight: 600; }
+.spot-item .price {
+  background: #667eea;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.spot-item .price.free { background: #52c41a; }
+
+/* 美食 */
+.food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.food-item {
+  padding: 12px 14px;
+  background: #fff8e1;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: text;
+}
+.food-item .name { font-weight: 600; outline: none; }
+.food-item .shop { font-size: 12px; color: #888; margin-top: 2px; outline: none; }
+.food-item:focus-within { box-shadow: 0 0 0 2px #667eea; }
+
+/* 信息条 */
+.info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.info-item {
+  background: #f0f5ff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.info-item strong { color: #667eea; }
+
+/* 距离标签 */
+.dist {
+  display: inline-block;
+  background: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 西湖路线 */
+.route-steps {
+  padding-left: 20px;
+  list-style: none;
+  counter-reset: step;
+}
+.route-steps li {
+  counter-increment: step;
+  padding: 6px 0;
+  font-size: 14px;
+  position: relative;
+  padding-left: 30px;
+}
+.route-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  background: #667eea;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 回程表 */
+.return-table td:first-child { font-weight: 600; min-width: 100px; }
+
+/* 预算 */
+.budget-grid { display: grid; gap: 10px; }
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.budget-item.total {
+  background: #667eea;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* 检查清单 */
+.check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+.check-item {
+  padding: 8px 12px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* 底部 */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 12px; }
+  .header { padding: 24px 16px; }
+  .header h1 { font-size: 20px; }
+  .card { padding: 16px; }
+  .timeline-time { min-width: 70px; font-size: 13px; }
+  .timeline-content { font-size: 13px; }
+  .food-grid { grid-template-columns: 1fr 1fr; }
+  .check-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- 顶栏 -->
+<div class="header">
+  <h1>🚗 广州→杭州 6天自驾游</h1>
+  <div class="sub">广州海珠 → 汕头 → 泉州 → 长汀 → 景德镇 → 杭州 → 回程南昌 → 广州</div>
+  <div class="tags">
+    <span>🕐 8:00出发 22:00休息</span>
+    <span>🏔️ 不爬山</span>
+    <span>🌃 傍晚≤1.5h</span>
+    <span>🏨 非景区住宿</span>
+    <span>💰 3人预算¥5000内</span>
+  </div>
+</div>
+
+<!-- 总里程 -->
+<div class="card">
+  <h2>📊 全程路线总里程</h2>
+
+  <h3 style="font-size:16px;margin-bottom:10px;color:#1890ff;">🛤️ 去程 · 广州→杭州</h3>
+  <table>
+    <tr><th>天</th><th>段</th><th>时段</th><th>距离</th><th>开车</th></tr>
+    <tr>
+      <td><strong>D1</strong></td>
+      <td>🚗 广州→汕头</td>
+      <td><span style="background:#e6f7ff;padding:2px 8px;border-radius:10px;font-size:12px;">☀️ 上午</span></td>
+      <td><strong>450km</strong></td>
+      <td>4.5h</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>D2</strong></td>
+      <td>🚗 汕头→泉州</td>
+      <td><span style="background:#e6f7ff;padding:2px 8px;border-radius:10px;font-size:12px;">☀️ 上午</span></td>
+      <td><strong>250km</strong></td>
+      <td>3h</td>
+    </tr>
+    <tr>
+      <td>🚗 泉州→漳州 <span style="color:#1890ff;font-size:11px;">(傍晚18:00)</span></td>
+      <td><span style="background:#fff0e6;padding:2px 8px;border-radius:10px;font-size:12px;">🌆 傍晚</span></td>
+      <td><strong>100km</strong></td>
+      <td>1.5h</td>
+    </tr>
+    <tr>
+      <td><strong>D3</strong></td>
+      <td>🚗 漳州→长汀</td>
+      <td><span style="background:#e6f7ff;padding:2px 8px;border-radius:10px;font-size:12px;">☀️ 上午</span></td>
+      <td><strong>250km</strong></td>
+      <td>3h</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>D4</strong></td>
+      <td>🚗 长汀→景德镇</td>
+      <td><span style="background:#e6f7ff;padding:2px 8px;border-radius:10px;font-size:12px;">☀️ 上午</span></td>
+      <td><strong>450km</strong></td>
+      <td>4.5h</td>
+    </tr>
+    <tr>
+      <td>🚗 景德镇→金华 <span style="color:#1890ff;font-size:11px;">(傍晚18:00)</span></td>
+      <td><span style="background:#fff0e6;padding:2px 8px;border-radius:10px;font-size:12px;">🌆 傍晚</span></td>
+      <td><strong>150km</strong></td>
+      <td>1.5h</td>
+    </tr>
+    <tr>
+      <td><strong>D5</strong></td>
+      <td>🚗 金华→杭州</td>
+      <td><span style="background:#e6f7ff;padding:2px 8px;border-radius:10px;font-size:12px;">☀️ 上午</span></td>
+      <td><strong>150km</strong></td>
+      <td>1.5h</td>
+    </tr>
+    <tr style="background:#f0f5ff;font-weight:700;">
+      <td colspan="3">🏁 去程小计 · 广州→杭州</td>
+      <td><strong>~1800km</strong></td>
+      <td><strong>~19.5h</strong></td>
+    </tr>
+  </table>
+
+  <h3 style="font-size:16px;margin:16px 0 10px;color:#ff4d4f;">🔙 回程 · 杭州→广州</h3>
+  <table>
+    <tr><th>天</th><th>段</th><th>时段</th><th>距离</th><th>开车</th></tr>
+    <tr>
+      <td><strong>D5</strong></td>
+      <td>🚗 杭州→南昌</td>
+      <td><span style="background:#fff0f0;padding:2px 8px;border-radius:10px;font-size:12px;">🔙 下午回程</span></td>
+      <td><strong>500km</strong></td>
+      <td>5h</td>
+    </tr>
+    <tr>
+      <td><strong>D6</strong></td>
+      <td>🚗 南昌→广州</td>
+      <td><span style="background:#fff0f0;padding:2px 8px;border-radius:10px;font-size:12px;">🔙 全天回程</span></td>
+      <td><strong>750km</strong></td>
+      <td>8h</td>
+    </tr>
+    <tr style="background:#fff0f0;font-weight:700;">
+      <td colspan="3">🏁 回程小计 · 杭州→广州</td>
+      <td><strong>~1250km</strong></td>
+      <td><strong>13h</strong></td>
+    </tr>
+  </table>
+
+  <div style="margin-top:14px;background:#fffbe6;padding:14px;border-radius:12px;font-size:16px;font-weight:700;text-align:center;">
+    🚗 全程总里程 <strong style="font-size:22px;color:#667eea;">~3050km</strong> &nbsp;&nbsp;|&nbsp;&nbsp; 总开车时间 <strong style="font-size:22px;color:#667eea;">~32.5h</strong>
+  </div>
+
+  <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:13px;">
+    <span>☀️ 上午开车 · 8:00出发</span>
+    <span>🌆 傍晚开车 · 18:00出发 · 均≤1.5h</span>
+    <span>🔙 回程开车 · 最快高速</span>
+  </div>
+</div>
+
+<!-- Day 1 -->
+<div class="card">
+  <h2><span class="day-tag">D1</span> 广州→汕头 <span class="dist">450km / 4.5h</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>12:30</strong> 到汕头</span>
+    <span class="info-item"><strong>22:00</strong> 休息</span>
+    <span class="info-item"><strong>🏨</strong> 汕头·龙湖区</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-12:30</div>
+      <div class="timeline-content">🚗 <strong>广州→汕头</strong>（G15沈海高速，450km/4.5h）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:30-13:30</div>
+      <div class="timeline-content">🍜 <strong>午餐</strong>（汕头美食，自行选择）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00-16:30</div>
+      <div class="timeline-content">🚶 <strong>汕头小公园老城区</strong>（免费🆓，全平路✅）小公园骑楼群→存心公馆→老妈宫戏台→路边买甘草水果</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">17:00-22:00</div>
+      <div class="timeline-content">🏁 入住酒店（龙湖区）→ 🍽️ 晚餐 → 自由活动 → 😴 22:00休息</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px; margin:14px 0 8px;">🍜 美食（点击文字直接编辑✏️）</h3>
+  <div class="food-grid">
+    <div class="food-item"><div class="name" contenteditable="true">🥩 推荐1</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+    <div class="food-item"><div class="name" contenteditable="true">🦪 推荐2</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+    <div class="food-item"><div class="name" contenteditable="true">🍡 推荐3</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+  </div>
+</div>
+
+<!-- Day 2 -->
+<div class="card">
+  <h2><span class="day-tag">D2</span> 汕头→泉州→漳州 <span class="dist">250+100km</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>11:00</strong> 到泉州</span>
+    <span class="info-item"><strong>18:00</strong> →漳州</span>
+    <span class="info-item"><strong>22:00</strong> 休息</span>
+    <span class="info-item"><strong>🏨</strong> 漳州·新城区</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-8:30</div>
+      <div class="timeline-content">🥟 早餐后退房</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-11:00</div>
+      <div class="timeline-content">🚗 <strong>汕头→泉州</strong>（G15沈海高速，250km/3h）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:00-18:00</div>
+      <div class="timeline-content">🏯 <strong>泉州古城游</strong>（7h，全平路✅）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">18:00-19:30</div>
+      <div class="timeline-content">🚗 <strong>泉州→漳州</strong>（100km/1.5h <span style="color:#52c41a;">✅傍晚</span>）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">19:30-22:00</div>
+      <div class="timeline-content">🏁 入住漳州新城区 → 🏯 漳州古城夜逛（免费🆓）→ 🍜 晚餐（自行选择）→ 😴22:00</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px; margin:14px 0 8px;">🏛️ 泉州景点</h3>
+  <div class="spot-grid">
+    <div class="spot-item"><span class="name">🏯 开元寺</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏘️ 西街</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏛️ 关帝庙</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏛️ 清净寺</span><span class="price">¥3</span></div>
+  </div>
+
+  <h3 style="font-size:15px; margin:14px 0 8px;">🍜 美食（点击文字直接编辑✏️）</h3>
+  <div class="food-grid">
+    <div class="food-item"><div class="name" contenteditable="true">推荐1</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+    <div class="food-item"><div class="name" contenteditable="true">推荐2</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+    <div class="food-item"><div class="name" contenteditable="true">推荐3</div><div class="shop" contenteditable="true">点我输入店铺/价格</div></div>
+  </div>
+</div>
+
+<!-- Day 3 -->
+<div class="card">
+  <h2><span class="day-tag">D3</span> 漳州→长汀（住长汀）<span class="dist">250km</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>11:00</strong> 到长汀</span>
+    <span class="info-item"><strong>🚫</strong> 傍晚不开车</span>
+    <span class="info-item"><strong>🏨</strong> 长汀·新城区</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-8:30</div>
+      <div class="timeline-content">🥟 早餐后退房</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-11:00</div>
+      <div class="timeline-content">🚗 <strong>漳州→长汀</strong>（G76厦蓉高速→S10，250km/3h）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:00-17:30</div>
+      <div class="timeline-content">🏯 <strong>长汀古城6h深度游</strong>（全平路✅）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">18:00-22:00</div>
+      <div class="timeline-content">🍽️ 晚餐客家菜 → 🌃 古城夜景（城墙灯光）→ 😴 住长汀新城区</div>
+    </div>
+  </div>
+
+  <div class="spot-grid">
+    <div class="spot-item"><span class="name">🏯 店头街（千米宋代古街）</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏯 古城墙（唐代城墙）</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏛️ 三元阁（古城门楼）</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏛️ 汀州试院（明清考场）</span><span class="price free">免费</span></div>
+  </div>
+
+  <div style="background:#fff8e1;padding:10px 14px;border-radius:10px;margin-top:10px;font-size:14px;">
+    💡 路易·艾黎说："中国有两个最美的小城，一个是凤凰，一个是长汀。"<br>
+    🚗 <strong>傍晚不用开车</strong>，直接住长汀，晚上看古城夜景 ✅
+  </div>
+</div>
+
+<!-- Day 4 -->
+<div class="card">
+  <h2><span class="day-tag">D4</span> 长汀→景德镇→金华 <span class="dist">450+150km</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>12:30</strong> 到景德镇</span>
+    <span class="info-item"><strong>18:00</strong> →金华</span>
+    <span class="info-item"><strong>🏨</strong> 金华·新城区</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-8:30</div>
+      <div class="timeline-content">🥟 早餐后退房</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-12:30</div>
+      <div class="timeline-content">🚗 <strong>长汀→景德镇</strong>（G35济广高速，450km/4.5h）⚠️ 此段最长，瑞金/鹰潭服务区建议加油</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12:30-18:00</div>
+      <div class="timeline-content">🍜 午餐（自行选择）→ 🏺 <strong>陶溪川文创园</strong>（免费）→ 🏺 <strong>中国陶瓷博物馆</strong>（免费，室内）→ 自由活动</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">18:00-19:30</div>
+      <div class="timeline-content">🚗 <strong>景德镇→金华</strong>（150km/1.5h <span style="color:#52c41a;">✅傍晚</span>）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">19:30-22:00</div>
+      <div class="timeline-content">🏁 入住金华新城区 → 🏯 金华古子城夜逛（免费）→ 🍜 晚餐（自行选择）→ 😴22:00</div>
+    </div>
+  </div>
+
+  <div class="spot-grid">
+    <div class="spot-item"><span class="name">🏺 陶溪川文创园（老瓷厂改造）</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏺 中国陶瓷博物馆（国家一级）</span><span class="price free">免费</span></div>
+    <div class="spot-item"><span class="name">🏯 金华古子城（夜景）</span><span class="price free">免费</span></div>
+  </div>
+</div>
+
+<!-- Day 5 -->
+<div class="card">
+  <h2><span class="day-tag" style="background:#52c41a;">D5</span> 金华→杭州西湖🔙南昌 <span class="dist">150+500km</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>9:30-13:30</strong> 🏞️西湖4h</span>
+    <span class="info-item"><strong>14:00</strong> →南昌</span>
+    <span class="info-item"><strong>🏨</strong> 南昌·红谷滩</span>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">8:00-9:30</div>
+      <div class="timeline-content">🚗 <strong>金华→杭州</strong>（G60沪昆高速，150km/1.5h）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">9:30-13:30</div>
+      <div class="timeline-content">🏞️ <strong>西湖4h深度游</strong>（全平路✅）</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">13:30-14:00</div>
+      <div class="timeline-content">🥟 午餐（小笼包/片儿川）+ 退车</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">14:00-19:00</div>
+      <div class="timeline-content">🚗 <strong>杭州→南昌</strong>（G60沪昆高速，500km/5h）⚠️ 出发加满油</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">19:00-22:00</div>
+      <div class="timeline-content">🍜 晚餐（自行选择）→ 😴 住红谷滩新区</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px; margin:14px 0 8px;">🏞️ 西湖路线（9:30-13:30，4h）</h3>
+  <ol class="route-steps">
+    <li><strong>断桥残雪</strong>（起点，拍照）</li>
+    <li><strong>白堤</strong>（散步看湖景，步行15min）</li>
+    <li><strong>平湖秋月</strong>（最佳观景点）</li>
+    <li><strong>苏堤春晓</strong>（2.8km精华段）</li>
+    <li><strong>花港观鱼</strong>（喂锦鲤）</li>
+    <li><strong>雷峰塔</strong>（¥40，可选登塔看全景）</li>
+  </ol>
+</div>
+
+<!-- Day 6 -->
+<div class="card">
+  <h2><span class="day-tag" style="background:#ff4d4f;">D6 🔙</span> 南昌→广州 <span class="dist">750km</span></h2>
+
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>16:30</strong> 🏁到家</span>
+  </div>
+
+  <table class="return-table">
+    <tr><th>时间</th><th>路段</th><th>距离</th></tr>
+    <tr><td>8:00-10:30</td><td>南昌→吉安（G45大广高速）</td><td>220km / 2.5h</td></tr>
+    <tr><td>10:30-11:00</td><td>🅿️ <strong>吉安服务区</strong>休息+午餐</td><td>—</td></tr>
+    <tr><td>11:00-13:30</td><td>吉安→韶关（G45大广高速）</td><td>350km / 2.5h</td></tr>
+    <tr><td>13:30-14:00</td><td>🅿️ <strong>韶关服务区</strong>最后休息</td><td>—</td></tr>
+    <tr><td>14:00-16:30</td><td>韶关→广州海珠（乐广高速→华快）</td><td>170km / 2h</td></tr>
+    <tr style="background:#fffbe6;font-weight:700;"><td colspan="2">🏁 到家！</td><td>750km / ~9h含休息</td></tr>
+  </table>
+
+  <div style="background:#fff0f0;padding:12px;border-radius:10px;margin-top:12px;font-size:14px;">
+    ⚠️ 回程最长段，建议8:00准时出发。备好红牛/咖啡，最好两人轮开。油量过半就加。
+  </div>
+</div>
+
+<!-- 完整总表 -->
+<div class="card">
+  <h2>📋 完整总表</h2>
+  <table>
+    <tr><th>天</th><th>🚗 上午</th><th>🚗 傍晚</th><th>🎯 玩</th><th>🏨 住</th></tr>
+    <tr><td><strong>D1</strong></td><td>广州→汕头 450km</td><td>—</td><td>🥩牛肉火锅+小公园</td><td>汕头·龙湖区</td></tr>
+    <tr><td><strong>D2</strong></td><td>汕头→泉州 250km</td><td>泉州→漳州 1.5h ✅</td><td>🏯泉州玩到18:00+漳州古城</td><td>漳州·新城区</td></tr>
+    <tr><td><strong>D3</strong></td><td>漳州→长汀 250km</td><td>— ✅住长汀</td><td>🏯长汀古城6h+夜景</td><td>长汀·新城区</td></tr>
+    <tr><td><strong>D4</strong></td><td>长汀→景德镇 450km</td><td>景德镇→金华 1.5h ✅</td><td>🏺陶溪川+博物馆+古子城</td><td>金华·新城区</td></tr>
+    <tr><td><strong>D5</strong></td><td>金华→杭州 1.5h</td><td>杭州→南昌 500km（下午）</td><td>🏞️西湖4h</td><td>南昌·红谷滩</td></tr>
+    <tr><td><strong>D6</strong></td><td>南昌→广州 750km</td><td>—</td><td>🏁到家</td><td>—</td></tr>
+  </table>
+</div>
+
+<!-- 预算 -->
+<div class="card">
+  <h2>💰 预算（3人¥5000内）</h2>
+  <div class="budget-grid">
+    <div class="budget-item"><span>🚗 油费（全程~3050km）</span><span>~¥1680</span></div>
+    <div class="budget-item"><span>🛣️ 过路费</span><span>~¥1500</span></div>
+    <div class="budget-item"><span>🏨 住宿（5晚×2间·平价旅馆）</span><span>~¥1000</span></div>
+    <div class="budget-item"><span>🍜 餐饮（3人·6天·多吃小吃）</span><span>~¥800</span></div>
+    <div class="budget-item"><span>🎫 门票（全程·仅清净寺¥3）</span><span>~¥15</span></div>
+    <div class="budget-item total"><span>💰 总计</span><span>~¥4995 ✅</span></div>
+    <div class="budget-item" style="background:#f0f5ff;"><span>👨‍👩‍👧 3人总预算</span><span>¥5000 刚刚好！</span></div>
+  </div>
+  <div style="margin-top:12px;background:#fff8e1;padding:12px 14px;border-radius:10px;font-size:14px;">
+    <strong>💡 省钱秘诀：</strong><br>
+    🏨 住宿找¥100/间的平价旅馆（非景区区域很多）<br>
+    🍜 控制预算，多吃小吃少点菜<br>
+    🅿️ 住新城区免费停车，省停车费<br>
+    ⛽ 江西油价最低，进广东前加满
+  </div>
+</div>
+
+<!-- 出发前检查 -->
+<div class="card">
+  <h2>✅ 出发前车辆检查</h2>
+  <div class="check-grid">
+    <div class="check-item">🛞 轮胎胎压（含备胎）</div>
+    <div class="check-item">💧 机油液位</div>
+    <div class="check-item">💧 冷却液</div>
+    <div class="check-item">💧 玻璃水加满</div>
+    <div class="check-item">🛑 刹车检查</div>
+    <div class="check-item">🔋 电瓶桩头</div>
+    <div class="check-item">🪪 行驶证+驾驶证</div>
+    <div class="check-item">📱 手机支架</div>
+    <div class="check-item">🔌 车载充电线</div>
+    <div class="check-item">🧯 三角牌+灭火器</div>
+  </div>
+</div>
+
+<!-- 加油 -->
+<div class="card">
+  <h2>⛽ 加油提示</h2>
+  <table>
+    <tr><th>路段</th><th>建议加油点</th></tr>
+    <tr><td>广州→汕头（450km）</td><td>出发加满，或惠州服务区补</td></tr>
+    <tr><td>长汀→景德镇（450km）⚠️</td><td>瑞金服务区或鹰潭服务区必加</td></tr>
+    <tr><td>杭州→南昌（500km）⚠️</td><td>杭州加满，衢州服务区补油</td></tr>
+    <tr><td>南昌→广州（750km）⚠️</td><td>南昌加满，吉安服务区补油</td></tr>
+  </table>
+  <div style="margin-top:10px;font-size:13px;color:#888;">💡 油量剩¼就要加，江西段服务区间隔最远80km。江西油价最低，进广东前加满。</div>
+
+  <h3 style="font-size:15px;margin:16px 0 8px;">各省油价参考</h3>
+  <table>
+    <tr><th>省份</th><th>92#（约）</th><th>95#（约）</th></tr>
+    <tr><td>广东</td><td>¥8.0</td><td>¥8.7</td></tr>
+    <tr><td>福建</td><td>¥7.9</td><td>¥8.5</td></tr>
+    <tr><td style="color:#52c41a;font-weight:700;">江西 ⭐最低</td><td style="color:#52c41a;">¥7.8</td><td style="color:#52c41a;">¥8.4</td></tr>
+    <tr><td>浙江</td><td>¥8.0</td><td>¥8.6</td></tr>
+  </table>
+</div>
+
+<!-- 行李 -->
+<div class="card">
+  <h2>🧳 行前准备</h2>
+
+  <h3 style="font-size:15px;margin-bottom:8px;">👕 衣服</h3>
+  <div class="check-grid">
+    <div class="check-item">换洗衣物6天×2套</div>
+    <div class="check-item">👟 运动鞋</div>
+    <div class="check-item">🧥 薄外套（车上冷）</div>
+    <div class="check-item">☂️ 雨伞（6月阵雨）</div>
+    <div class="check-item">🧴 防晒霜</div>
+  </div>
+
+  <h3 style="font-size:15px;margin:12px 0 8px;">📱 数码</h3>
+  <div class="check-grid">
+    <div class="check-item">手机+充电线×2</div>
+    <div class="check-item">🔋 充电宝</div>
+    <div class="check-item">🗺️ 离线地图（闽赣浙）</div>
+    <div class="check-item">🎧 播客/有声书</div>
+    <div class="check-item">📷 相机</div>
+  </div>
+
+  <h3 style="font-size:15px;margin:12px 0 8px;">💊 日用品</h3>
+  <div class="check-grid">
+    <div class="check-item">感冒药+肠胃药</div>
+    <div class="check-item">🧻 湿纸巾</div>
+    <div class="check-item">🥤 保温杯</div>
+    <div class="check-item">🍞 零食+水</div>
+    <div class="check-item">☕ 红牛/咖啡</div>
+    <div class="check-item">🕶️ 墨镜</div>
+  </div>
+</div>
+
+<!-- 住宿 -->
+<div class="card">
+  <h2>🏨 各城市住宿建议</h2>
+  <table>
+    <tr><th>晚</th><th>城市</th><th>推荐区域</th><th>离景区</th><th>停车</th></tr>
+    <tr><td>①</td><td><strong>汕头</strong></td><td>龙湖区（长平路）</td><td>小公园3-5km</td><td>免费✅</td></tr>
+    <tr><td>②</td><td><strong>漳州</strong></td><td>龙文区/碧湖</td><td>古城2km</td><td>免费✅</td></tr>
+    <tr><td>③</td><td><strong>长汀</strong></td><td>新城区（环城路外）</td><td>古城2-3km</td><td>免费✅</td></tr>
+    <tr><td>④</td><td><strong>金华</strong></td><td>婺城新区/金东区</td><td>古子城2km</td><td>方便✅</td></tr>
+    <tr><td>⑤</td><td><strong>南昌</strong></td><td>红谷滩新区</td><td>滕王阁隔江2km</td><td>方便✅</td></tr>
+  </table>
+  <div style="margin-top:10px;font-size:13px;color:#888;">💡 选开业2年内新酒店，¥150-250/晚，携程/高德比价</div>
+</div>
+
+<!-- 实用电话 -->
+<div class="card">
+  <h2>📞 实用电话</h2>
+  <table>
+    <tr><th>用途</th><th>号码</th></tr>
+    <tr><td>🚑 急救</td><td><strong>120</strong></td></tr>
+    <tr><td>🚓 报警</td><td><strong>110</strong></td></tr>
+    <tr><td>🚗 交通事故</td><td><strong>122</strong></td></tr>
+    <tr><td>🛣️ 高速救援</td><td><strong>12122</strong></td></tr>
+    <tr><td>🏢 保险公司</td><td>保单电话</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  🚗 广州→杭州 6天自驾游 · 全程3050km · 3人¥5000内 · 人均¥1667<br>
+  制作于 2026年6月
+</div>
+
+</div>
+
+</body>
+</html>
