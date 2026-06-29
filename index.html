@@ -3,190 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>广州→武功山→长汀→景德镇→杭州 6天自驾游</title>
+<title>广州→武功山→南昌→长汀→景德镇→杭州 6天自驾游</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
 .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 40px 30px; border-radius: 16px; margin-bottom: 24px; text-align: center; }
-.header h1 { font-size: 26px; margin-bottom: 8px; }
-.header .sub { font-size: 15px; opacity: 0.9; }
+.header h1 { font-size: 24px; margin-bottom: 8px; }
+.header .sub { font-size: 14px; opacity: 0.9; }
 .header .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.header .tags span { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 13px; }
+.header .tags span { background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; }
 .card { background: #fff; border-radius: 14px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-.card h2 { font-size: 20px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; }
-.card h2 .day-tag { display: inline-block; background: #667eea; color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 12px; margin-right: 8px; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-table th { background: #f8f9ff; padding: 10px 8px; text-align: left; font-weight: 600; border-bottom: 2px solid #e0e0e0; }
-table td { padding: 10px 8px; border-bottom: 1px solid #f0f0f0; }
-.timeline-item { display: flex; padding: 10px 0; border-bottom: 1px dashed #eee; }
+.card h2 { font-size: 18px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; }
+.card h2 .day-tag { display: inline-block; background: #667eea; color: #fff; font-size: 12px; padding: 2px 10px; border-radius: 12px; margin-right: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table th { background: #f8f9ff; padding: 8px 6px; text-align: left; font-weight: 600; border-bottom: 2px solid #e0e0e0; font-size: 13px; }
+table td { padding: 8px 6px; border-bottom: 1px solid #f0f0f0; }
+.timeline-item { display: flex; padding: 8px 0; border-bottom: 1px dashed #eee; }
 .timeline-item:last-child { border-bottom: none; }
-.timeline-time { min-width: 80px; font-weight: 700; color: #667eea; font-size: 14px; }
-.timeline-content { flex: 1; font-size: 14px; }
-.info-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
-.info-item { background: #f0f5ff; padding: 6px 14px; border-radius: 8px; font-size: 13px; }
+.timeline-time { min-width: 70px; font-weight: 700; color: #667eea; font-size: 13px; }
+.timeline-content { flex: 1; font-size: 13px; }
+.info-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.info-item { background: #f0f5ff; padding: 4px 10px; border-radius: 8px; font-size: 12px; }
 .info-item strong { color: #667eea; }
-.dist { display: inline-block; background: #e6f7ff; color: #1890ff; padding: 2px 10px; border-radius: 10px; font-size: 13px; font-weight: 600; }
-.budget-grid { display: grid; gap: 10px; }
-.budget-item { display: flex; justify-content: space-between; padding: 10px 14px; background: #f9f9f9; border-radius: 8px; font-size: 14px; }
-.budget-item.total { background: #667eea; color: #fff; font-weight: 700; font-size: 16px; }
-.footer { text-align: center; padding: 20px; color: #999; font-size: 13px; }
-@media (max-width: 600px) { .container { padding: 12px; } .header { padding: 24px 16px; } .header h1 { font-size: 20px; } .card { padding: 16px; } }
+.dist { display: inline-block; background: #e6f7ff; color: #1890ff; padding: 2px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.budget-grid { display: grid; gap: 8px; }
+.budget-item { display: flex; justify-content: space-between; padding: 8px 12px; background: #f9f9f9; border-radius: 8px; font-size: 13px; }
+.budget-item.total { background: #667eea; color: #fff; font-weight: 700; font-size: 14px; }
+.footer { text-align: center; padding: 16px; color: #999; font-size: 12px; }
+@media (max-width: 600px) { .container { padding: 12px; } .header { padding: 20px 16px; } .header h1 { font-size: 18px; } .card { padding: 16px; } }
 </style>
 </head>
 <body>
 <div class="container">
 
 <div class="header">
-  <h1>🚗 广州→武功山→长汀→景德镇→杭州</h1>
-  <div class="sub">广州海珠 → 萍乡·武功山🏔️ → 长汀🏯 → 景德镇🏺 → 杭州🏞️ → 回程</div>
+  <h1>🚗 广州→武功山→南昌→长汀→景德镇→杭州</h1>
+  <div class="sub">广州海珠 → 萍乡·武功山🏔️ → 南昌🏯 → 长汀🏯 → 景德镇🏺 → 杭州🏞️</div>
   <div class="tags">
-    <span>🕐 8:00出发 22:00休息</span>
-    <span>🚠 武功山缆车上下不爬山</span>
-    <span>💰 3人预算¥6000内</span>
+    <span>🕐 8:00出发</span>
+    <span>🚠 武功山缆车上下</span>
+    <span>💵 3人¥6000内</span>
+    <span>🏔️ 7月山顶22-28°C</span>
   </div>
 </div>
 
-<!-- 总里程 -->
 <div class="card">
   <h2>📊 总里程</h2>
   <table>
     <tr><th>天</th><th>段</th><th>距离</th><th>开车</th><th>到站</th><th>住</th></tr>
-    <tr><td><strong>D1</strong></td><td>广州→萍乡🏔️</td><td><strong>530km</strong></td><td>5.5h</td><td>13:30</td><td>萍乡</td></tr>
-    <tr><td><strong>D2</strong></td><td>萍乡→长汀🏯</td><td><strong>450km</strong></td><td>5h</td><td>13:00</td><td>长汀</td></tr>
-    <tr><td><strong>D3</strong></td><td>长汀→景德镇🏺</td><td><strong>450km</strong></td><td>4.5h</td><td>12:30</td><td>景德镇</td></tr>
-    <tr><td><strong>D4</strong></td><td>景德镇→杭州🏞️</td><td><strong>330km</strong></td><td>3.5h</td><td>11:30</td><td>杭州</td></tr>
-    <tr style="background:#f0f5ff;font-weight:700;"><td colspan="4">去程小计</td><td><strong>~1760km</strong></td><td></td></tr>
-    <tr><td><strong>D5</strong></td><td>🔙杭州→吉安</td><td><strong>550km</strong></td><td>5.5h</td><td>—</td><td>吉安</td></tr>
-    <tr><td><strong>D6</strong></td><td>🔙吉安→广州</td><td><strong>700km</strong></td><td>7h</td><td>16:00🏁</td><td>—</td></tr>
-    <tr style="background:#fffbe6;font-weight:700;font-size:16px;"><td colspan="4">🚗 全程</td><td><strong>~3010km</strong></td><td></td></tr>
+    <tr><td><strong>D1</strong></td><td>广州→萍乡🏔️</td><td>530km</td><td>5.5h</td><td>13:30</td><td>萍乡</td></tr>
+    <tr><td><strong>D2</strong></td><td>萍乡→南昌🏯</td><td>280km</td><td>3h</td><td>11:00</td><td>南昌</td></tr>
+    <tr><td><strong>D3</strong></td><td>南昌→长汀🏯</td><td>400km</td><td>4h</td><td>12:00</td><td>长汀</td></tr>
+    <tr><td><strong>D4</strong></td><td>长汀→景德镇🏺</td><td>450km</td><td>4.5h</td><td>12:30</td><td>景德镇</td></tr>
+    <tr><td><strong>D5</strong></td><td>景德镇→杭州🏞️→🔙南昌</td><td>330+500km</td><td>3.5+5h</td><td>11:30→19:00</td><td>南昌</td></tr>
+    <tr><td><strong>D6</strong></td><td>🔙南昌→广州🏁</td><td>750km</td><td>8h</td><td>16:00</td><td>—</td></tr>
+    <tr style="background:#fffbe6;font-weight:700;"><td colspan="4">🚗 全程~3310km</td><td colspan="2">💰 约¥5900</td></tr>
   </table>
 </div>
 
-<!-- D1 -->
 <div class="card">
-  <h2><span class="day-tag">D1</span> 广州→萍乡·武功山 🏔️ <span class="dist">530km / 5.5h</span></h2>
+  <h2><span class="day-tag">D1</span> 广州→萍乡·武功山 <span class="dist">530km/5.5h</span></h2>
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
-    <span class="info-item"><strong>13:30</strong> 到萍乡</span>
-    <span class="info-item"><strong>🚠</strong> 缆车上下不爬山</span>
+    <span class="info-item"><strong>13:30</strong> 到</span>
+    <span class="info-item"><strong>🏔️</strong> 山顶22°C凉快</span>
     <span class="info-item"><strong>🏨</strong> 萍乡</span>
   </div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">8:00-13:30</div><div class="timeline-content">🚗 <strong>广州→萍乡</strong>（G4京港澳→G60沪昆高速，530km/5.5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">13:30-14:30</div><div class="timeline-content">🍜 午餐（萍乡炒粉）+ 开车到武功山景区（30min）</div></div>
-    <div class="timeline-item"><div class="timeline-time">14:30-19:00</div><div class="timeline-content">🚠 <strong>武功山</strong>一级索道🚡→二级索道🚡→金顶🌄看日落→平路木栈道散步→🚡下山</div></div>
-    <div class="timeline-item"><div class="timeline-time">19:30-22:00</div><div class="timeline-content">🍽️ 晚餐 → 😴 住萍乡</div></div>
+    <div class="timeline-item"><div class="timeline-time">8:00-13:30</div><div class="timeline-content">🚗 广州→萍乡（G4京港澳→G60沪昆高速）</div></div>
+    <div class="timeline-item"><div class="timeline-time">13:30-14:30</div><div class="timeline-content">🍜 午餐萍乡炒粉 + 开车到武功山景区30min</div></div>
+    <div class="timeline-item"><div class="timeline-time">14:30-19:00</div><div class="timeline-content">🚠 <strong>武功山</strong>一级索道🚡→二级索道🚡→金顶看草甸🌅看日落→木栈道散步→🚡下山</div></div>
+    <div class="timeline-item"><div class="timeline-time">19:30-22:00</div><div class="timeline-content">🍽️ 晚餐 → 😴 住萍乡（山下）</div></div>
   </div>
 </div>
 
-<!-- D2 -->
 <div class="card">
-  <h2><span class="day-tag">D2</span> 萍乡→长汀 🏯 <span class="dist">450km / 5h</span></h2>
+  <h2><span class="day-tag">D2</span> 萍乡→南昌 <span class="dist">280km/3h</span></h2>
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
-    <span class="info-item"><strong>13:00</strong> 到长汀</span>
+    <span class="info-item"><strong>11:00</strong> 到南昌</span>
+    <span class="info-item"><strong>🏨</strong> 南昌·红谷滩</span>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-time">8:00-11:00</div><div class="timeline-content">🚗 萍乡→南昌（G60沪昆高速）</div></div>
+    <div class="timeline-item"><div class="timeline-time">11:00-17:30</div><div class="timeline-content">🏯 <strong>南昌</strong>🍜拌粉+瓦罐汤→🏯滕王阁（¥50）→🏛️江西省博（免费）→🏘️万寿宫</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 秋水广场夜景 → 😴 住南昌</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="day-tag">D3</span> 南昌→长汀 <span class="dist">400km/4h</span></h2>
+  <div class="info-bar">
+    <span class="info-item"><strong>8:00</strong> 出发</span>
+    <span class="info-item"><strong>12:00</strong> 到长汀</span>
     <span class="info-item"><strong>🏨</strong> 长汀·新城区</span>
   </div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">8:00-13:00</div><div class="timeline-content">🚗 <strong>萍乡→长汀</strong>（G72泉南高速→S10，450km/5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">13:00-17:30</div><div class="timeline-content">🏯 <strong>长汀古城</strong>🍜客家菜午餐→店头街→古城墙→三元阁→汀州试院（全免费🆓）</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 古城夜景 → 😴 住长汀</div></div>
+    <div class="timeline-item"><div class="timeline-time">8:00-12:00</div><div class="timeline-content">🚗 南昌→长汀（G72泉南高速→S10）</div></div>
+    <div class="timeline-item"><div class="timeline-time">12:00-17:30</div><div class="timeline-content">🏯 <strong>长汀古城</strong>（免费🆓）🍜客家菜→店头街→古城墙→三元阁→汀州试院</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 古城夜景灯关 → 😴 住长汀</div></div>
   </div>
 </div>
 
-<!-- D3 -->
 <div class="card">
-  <h2><span class="day-tag">D3</span> 长汀→景德镇 🏺 <span class="dist">450km / 4.5h</span></h2>
+  <h2><span class="day-tag">D4</span> 长汀→景德镇 <span class="dist">450km/4.5h</span></h2>
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>12:30</strong> 到景德镇</span>
     <span class="info-item"><strong>🏨</strong> 景德镇·昌江区</span>
   </div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">8:00-12:30</div><div class="timeline-content">🚗 <strong>长汀→景德镇</strong>（G35济广高速，450km/4.5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">12:30-17:30</div><div class="timeline-content">🏺 <strong>景德镇</strong>🍜冷粉→🏺陶溪川文创园（免费）→🏺中国陶瓷博物馆（免费·室内）→自由逛</div></div>
+    <div class="timeline-item"><div class="timeline-time">8:00-12:30</div><div class="timeline-content">🚗 长汀→景德镇（G35济广高速）</div></div>
+    <div class="timeline-item"><div class="timeline-time">12:30-17:30</div><div class="timeline-content">🏺 <strong>景德镇</strong>🍜冷粉→🏺陶溪川文创园（免费）→🏺中国陶瓷博物馆（免费·室内）</div></div>
     <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 陶溪川夜市 → 😴 住景德镇</div></div>
   </div>
 </div>
 
-<!-- D4 -->
 <div class="card">
-  <h2><span class="day-tag" style="background:#52c41a;">D4</span> 景德镇→杭州·西湖 🏞️ <span class="dist">330km / 3.5h</span></h2>
+  <h2><span class="day-tag" style="background:#52c41a;">D5</span> 景德镇→杭州西湖🔙南昌 <span class="dist">330+500km</span></h2>
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>11:30</strong> 到杭州</span>
-    <span class="info-item"><strong>🏨</strong> 杭州</span>
+    <span class="info-item"><strong>14:00</strong> 🔙回程</span>
+    <span class="info-item"><strong>🏨</strong> 南昌</span>
   </div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">8:00-11:30</div><div class="timeline-content">🚗 <strong>景德镇→杭州</strong>（G60沪昆高速，330km/3.5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">11:30-17:30</div><div class="timeline-content">🏞️ <strong>西湖6h深度游</strong>断桥→白堤→苏堤→花港观鱼→雷峰塔→河坊街</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 西湖夜景 → 😴 住杭州</div></div>
+    <div class="timeline-item"><div class="timeline-time">8:00-11:30</div><div class="timeline-content">🚗 景德镇→杭州（G60沪昆高速，330km/3.5h）</div></div>
+    <div class="timeline-item"><div class="timeline-time">11:30-14:00</div><div class="timeline-content">🏞️ <strong>西湖2.5h精华游</strong>断桥→白堤→苏堤→花港观鱼</div></div>
+    <div class="timeline-item"><div class="timeline-time">14:00-19:00</div><div class="timeline-content">🔙 🚗 杭州→南昌（G60沪昆高速，500km/5h）</div></div>
+    <div class="timeline-item"><div class="timeline-time">19:00-22:00</div><div class="timeline-content">🍜 晚餐拌粉 → 😴 住南昌·红谷滩</div></div>
   </div>
 </div>
 
-<!-- D5 -->
 <div class="card">
-  <h2><span class="day-tag" style="background:#ff4d4f;">D5 🔙</span> 杭州→吉安 <span class="dist">550km / 5.5h</span></h2>
+  <h2><span class="day-tag" style="background:#ff4d4f;">D6 🔙</span> 南昌→广州 <span class="dist">750km/8h</span></h2>
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
-    <span class="info-item"><strong>13:30</strong> 到吉安</span>
-    <span class="info-item"><strong>🏨</strong> 吉安</span>
-  </div>
-  <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">8:00-13:30</div><div class="timeline-content">🔙 🚗 <strong>杭州→吉安</strong>（G60沪昆高速→G45大广高速，550km/5.5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">13:30-22:00</div><div class="timeline-content">🍜 午餐→自由活动/休息→🍽️ 晚餐→😴 住吉安</div></div>
-  </div>
-</div>
-
-<!-- D6 -->
-<div class="card">
-  <h2><span class="day-tag" style="background:#ff4d4f;">D6 🔙</span> 吉安→广州 🏁 <span class="dist">700km / 7h</span></h2>
-  <div class="info-bar">
-    <span class="info-item"><strong>8:00</strong> 出发</span>
-    <span class="info-item"><strong>16:00</strong> 到家</span>
+    <span class="info-item"><strong>16:00</strong> 到家 🏁</span>
   </div>
   <table>
     <tr><th>时段</th><th>路段</th><th>距离</th></tr>
-    <tr><td>8:00-10:30</td><td>吉安→韶关</td><td>350km/2.5h</td></tr>
-    <tr><td>10:30-11:00</td><td>🅿️ 服务区休息</td><td>—</td></tr>
-    <tr><td>11:00-13:30</td><td>韶关→广州</td><td>350km/2.5h</td></tr>
-    <tr><td>13:30-14:00</td><td>🅿️ 服务区午餐</td><td>—</td></tr>
-    <tr><td>14:00-16:00</td><td>→广州海珠</td><td>—</td></tr>
-    <tr style="background:#fffbe6;font-weight:700;"><td colspan="2">🏁 到家！</td><td>700km</td></tr>
+    <tr><td>8:00-10:30</td><td>南昌→吉安</td><td>220km</td></tr>
+    <tr><td>10:30-11:00</td><td>🅿️ 吉安服务区午餐</td><td>—</td></tr>
+    <tr><td>11:00-13:30</td><td>吉安→韶关</td><td>350km</td></tr>
+    <tr><td>13:30-14:00</td><td>🅿️ 韶关服务区</td><td>—</td></tr>
+    <tr><td>14:00-16:00</td><td>韶关→广州海珠</td><td>180km</td></tr>
+    <tr style="background:#fffbe6;font-weight:700;"><td colspan="2">🏁 到家！</td><td>750km</td></tr>
   </table>
 </div>
 
-<!-- 总表 -->
 <div class="card">
-  <h2>📋 完整总表</h2>
+  <h2>📋 总表</h2>
   <table>
     <tr><th>天</th><th>行程</th><th>🚗</th><th>🎯</th><th>🏨</th></tr>
-    <tr><td><strong>D1</strong></td><td>广州→萍乡🏔️</td><td>530km</td><td>🚠武功山缆车·金顶日落🌅</td><td>萍乡</td></tr>
-    <tr><td><strong>D2</strong></td><td>萍乡→长汀🏯</td><td>450km</td><td>🏯长汀古城·客家菜</td><td>长汀</td></tr>
-    <tr><td><strong>D3</strong></td><td>长汀→景德镇🏺</td><td>450km</td><td>🏺陶溪川+陶瓷博物馆</td><td>景德镇</td></tr>
-    <tr><td><strong>D4</strong></td><td>景德镇→杭州🏞️</td><td>330km</td><td>🏞️西湖6h深度游</td><td>杭州</td></tr>
-    <tr><td><strong>D5</strong></td><td>🔙杭州→吉安</td><td>550km</td><td>回程·休息</td><td>吉安</td></tr>
-    <tr><td><strong>D6</strong></td><td>🔙吉安→广州🏁</td><td>700km</td><td>🏁下午4点到家</td><td>—</td></tr>
+    <tr><td><strong>D1</strong></td><td>广州→萍乡🏔️</td><td>530km</td><td>🚠武功山缆车·金顶看日落🌅</td><td>萍乡</td></tr>
+    <tr><td><strong>D2</strong></td><td>萍乡→南昌🏯</td><td>280km</td><td>🏯滕王阁+拌粉+省博</td><td>南昌</td></tr>
+    <tr><td><strong>D3</strong></td><td>南昌→长汀🏯</td><td>400km</td><td>🏯长汀古城·客家菜</td><td>长汀</td></tr>
+    <tr><td><strong>D4</strong></td><td>长汀→景德镇🏺</td><td>450km</td><td>🏺陶溪川+陶瓷博物馆</td><td>景德镇</td></tr>
+    <tr><td><strong>D5</strong></td><td>景德镇→杭州🔙南昌</td><td>330+500km</td><td>🏞️西湖2.5h→回程南昌</td><td>南昌</td></tr>
+    <tr><td><strong>D6</strong></td><td>🔙南昌→广州🏁</td><td>750km</td><td>🏁下午4点到家</td><td>—</td></tr>
   </table>
 </div>
 
-<!-- 预算 -->
 <div class="card">
   <h2>💰 预算（3人¥6000内）</h2>
   <div class="budget-grid">
-    <div class="budget-item"><span>🚗 油费（全程~3010km）</span><span>~¥1660</span></div>
-    <div class="budget-item"><span>🛣️ 过路费</span><span>~¥1500</span></div>
-    <div class="budget-item"><span>🏨 住宿（5晚×2间）</span><span>~¥1500</span></div>
-    <div class="budget-item"><span>🍜 餐饮（3人·6天）</span><span>~¥1100</span></div>
-    <div class="budget-item"><span>🎫 门票（武功山缆车¥100）</span><span>~¥100</span></div>
-    <div class="budget-item total"><span>💰 总计</span><span>~¥5860 ✅</span></div>
-    <div class="budget-item" style="background:#f0f5ff;"><span>3人¥6000内</span><span>还有余量！</span></div>
+    <div class="budget-item"><span>🚗 油费 3310km</span><span>~¥1820</span></div>
+    <div class="budget-item"><span>🛣️ 过路费</span><span>~¥1650</span></div>
+    <div class="budget-item"><span>🏨 住宿5晚×2间</span><span>~¥1500</span></div>
+    <div class="budget-item"><span>🍜 餐饮6天×3人</span><span>~¥900</span></div>
+    <div class="budget-item"><span>🎫 武功山缆车+滕王阁</span><span>~¥100</span></div>
+    <div class="budget-item total"><span>💰 总计</span><span>~¥5970 ✅</span></div>
   </div>
 </div>
 
 <div class="footer">
-  🚗 广州→武功山→长汀→景德镇→杭州 · 全程3010km · 3人¥6000内
+  🚗 广州→武功山→南昌→长汀→景德镇→杭州 · 全程3310km · 3人¥6000内<br>
+  🏔️ 7月武功山山顶22-28°C，带薄外套🧥
 </div>
 
 </div>
