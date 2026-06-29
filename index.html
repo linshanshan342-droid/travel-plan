@@ -30,6 +30,7 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
 .info-item strong{color:#667eea}
 .info-item.night{background:#1a1a2e;color:#fff}
 .info-item.night strong{color:#ffd700}
+.info-item[contenteditable]:focus,.timeline-content[contenteditable]:focus{outline:2px dashed #667eea;outline-offset:2px;border-radius:4px;cursor:text}
 .dist{display:inline-block;background:#e6f7ff;color:#1890ff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
 .budget-grid{display:grid;gap:8px}
 .budget-item{display:flex;justify-content:space-between;padding:8px 12px;background:#f9f9f9;border-radius:8px;font-size:13px}
@@ -75,7 +76,7 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
     <span class="info-item night"><strong>21:30</strong> 到韶关</span>
   </div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-time">19:00-21:30</div><div class="timeline-content">🚗 🚗 广州→韶关（G4京港澳高速，200km/2.5h）→ 入住酒店，早点休息</div></div>
+    <div class="timeline-item"><div class="timeline-time">19:00-21:30</div><div class="timeline-content" contenteditable="true">🚗 🚗 广州→韶关（G4京港澳高速，200km/2.5h）→ 入住酒店，早点休息</div></div>
   </div>
 </div>
 
@@ -86,13 +87,13 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>11:30</strong> 到武功山</span>
     <span class="info-item"><strong>🚠</strong> 玩到18:00</span>
-    <span class="info-item"><strong>🏨</strong> 萍乡</span>
+    <span class="info-item" contenteditable="true"><strong>🏨</strong> 萍乡</span>
   </div>
   <div class="timeline">
     <div class="timeline-item"><div class="timeline-time">8:00-11:30</div><div class="timeline-content">🚗 韶关→武功山（G4→G60，330km/3.5h）</div></div>
     <div class="timeline-item"><div class="timeline-time">11:30-12:30</div><div class="timeline-content">🍜 午餐萍乡炒粉 + 开到武功山景区（30min）</div></div>
     <div class="timeline-item"><div class="timeline-time">12:30-18:00</div><div class="timeline-content">🚠 <strong>武功山6h畅玩</strong>一级索道🚡→二级索道🚡→金顶看草甸🌿→木栈道散步→看日落🌅→🚡下山</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:30-22:00</div><div class="timeline-content">🍽️ 晚餐 → 😴 住萍乡</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:30-22:00</div><div class="timeline-content" contenteditable="true">🍽️ 晚餐 → 😴 住萍乡</div></div>
   </div>
 </div>
 
@@ -102,12 +103,12 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>11:00</strong> 到南昌</span>
-    <span class="info-item"><strong>🏨</strong> 南昌·红谷滩</span>
+    <span class="info-item" contenteditable="true"><strong>🏨</strong> 南昌·红谷滩</span>
   </div>
   <div class="timeline">
     <div class="timeline-item"><div class="timeline-time">8:00-11:00</div><div class="timeline-content">🚗 萍乡→南昌（G60沪昆高速）</div></div>
     <div class="timeline-item"><div class="timeline-time">11:00-17:30</div><div class="timeline-content">🏯 <strong>南昌</strong>🍜拌粉+瓦罐汤→🏯滕王阁（¥50）→🏛️江西省博海昏侯展（免费）→🏘️万寿宫</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 秋水广场 → 😴 住南昌</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content" contenteditable="true">🍽️ 晚餐 → 🌃 秋水广场 → 😴 住南昌</div></div>
   </div>
 </div>
 
@@ -117,12 +118,12 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>10:30</strong> 到景德镇⏰超早！</span>
-    <span class="info-item"><strong>🏨</strong> 景德镇·昌江区</span>
+    <span class="info-item" contenteditable="true"><strong>🏨</strong> 景德镇·昌江区</span>
   </div>
   <div class="timeline">
     <div class="timeline-item"><div class="timeline-time">8:00-10:30</div><div class="timeline-content">🚗 南昌→景德镇（G60→G35，200km/2.5h）超级近！</div></div>
     <div class="timeline-item"><div class="timeline-time">10:30-17:30</div><div class="timeline-content">🏺 <strong>景德镇全天</strong>🍜冷粉→🏺陶溪川文创园（免费）→🏺中国陶瓷博物馆（免费·室内）→🏺古窑民俗（可选¥50）</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐 → 🌃 陶溪川夜市 → 😴 住景德镇</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content" contenteditable="true">🍽️ 晚餐 → 🌃 陶溪川夜市 → 😴 住景德镇</div></div>
   </div>
 </div>
 
@@ -133,12 +134,12 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>11:30</strong> 到杭州</span>
     <span class="info-item"><strong>🏞️</strong> 西湖6h深度游</span>
-    <span class="info-item"><strong>🏨</strong> 杭州·西湖区</span>
+    <span class="info-item" contenteditable="true"><strong>🏨</strong> 杭州·西湖区</span>
   </div>
   <div class="timeline">
     <div class="timeline-item"><div class="timeline-time">8:00-11:30</div><div class="timeline-content">🚗 景德镇→杭州（G60沪昆高速）</div></div>
     <div class="timeline-item"><div class="timeline-time">11:30-17:30</div><div class="timeline-content">🏞️ <strong>西湖6h深度游</strong>断桥→白堤→苏堤→花港观鱼→雷峰塔（¥40）→河坊街</div></div>
-    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content">🍽️ 晚餐杭帮菜 → 🌃 西湖夜景 → 😴 住杭州</div></div>
+    <div class="timeline-item"><div class="timeline-time">18:00-22:00</div><div class="timeline-content" contenteditable="true">🍽️ 晚餐杭帮菜 → 🌃 西湖夜景 → 😴 住杭州</div></div>
   </div>
 </div>
 
@@ -148,11 +149,11 @@ table td{padding:8px 6px;border-bottom:1px solid #f0f0f0}
   <div class="info-bar">
     <span class="info-item"><strong>8:00</strong> 出发</span>
     <span class="info-item"><strong>13:30</strong> 到吉安</span>
-    <span class="info-item"><strong>🏨</strong> 吉安</span>
+    <span class="info-item" contenteditable="true"><strong>🏨</strong> 吉安</span>
   </div>
   <div class="timeline">
     <div class="timeline-item"><div class="timeline-time">8:00-13:30</div><div class="timeline-content">🔙 🚗 杭州→吉安（G60→G45，550km/5.5h）</div></div>
-    <div class="timeline-item"><div class="timeline-time">13:30-22:00</div><div class="timeline-content">🍜 午餐 → 自由活动/休息 → 😴 住吉安</div></div>
+    <div class="timeline-item"><div class="timeline-time">13:30-22:00</div><div class="timeline-content" contenteditable="true">🍜 午餐 → 自由活动/休息 → 😴 住吉安</div></div>
   </div>
 </div>
 
